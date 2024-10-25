@@ -8,6 +8,7 @@ namespace Task_5
 {
     public class Library
     {
+        int BookCount;
         private List<Book> Books { get; set; }
         public Library()
         {
@@ -17,6 +18,7 @@ namespace Task_5
         public void AddBook(Book book)
         {
             Books.Add(book);
+            BookCount++;
         }
 
         public void RemoveBook(string? title)
@@ -25,13 +27,15 @@ namespace Task_5
             var toRemove = SearchBook(title);
 
             Books.Remove(toRemove);
+            BookCount--;
         }
 
         public void DisplayAllBooks()
         {
             foreach(var book in Books)
             {
-                System.Console.WriteLine(book.Title);
+                
+                System.Console.WriteLine({ book.Title});
                 System.Console.WriteLine(book.Author);
         
                 System.Console.WriteLine(book.CopiesAvailable);

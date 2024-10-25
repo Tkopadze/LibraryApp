@@ -13,7 +13,7 @@
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Title cannot be empty or whitespace.");
+                    throw new ArgumentException("სახელი არავალიდურია");
                 _title = value;
             }
         }
@@ -24,7 +24,7 @@
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("Author cannot be empty or whitespace.");
+                    throw new ArgumentException("ავტორი არავალიდურია");
                 _author = value;
             }
         }
@@ -34,9 +34,9 @@
             set
             {
                 if (string.IsNullOrWhiteSpace(value))
-                    throw new ArgumentException("ISBN cannot be empty or whitespace.");
+                    throw new ArgumentException("ISBN არავალიდურია.");
                 if (value.Length != 13 || !long.TryParse(value, out _))
-                    throw new ArgumentException("ISBN must be a 13-digit number.");
+                    throw new ArgumentException("ISBN არავალიდურია");
                 _isbn = value;
             }
         }
@@ -47,7 +47,7 @@
             set
             {
                 if (value >0)
-                    throw new ArgumentException("Copies available cannot be negative.");
+                    throw new ArgumentException("არ არის ვალიდური");
                 _copiesAvailable = value;
             }
         }
@@ -59,20 +59,40 @@
             _isbn = isbn;
             _copiesAvailable = copiesAvailable;
         }
-
         public void DisplayInfo()
         {
-
+            Console.WriteLine($"სახელი: {Title}");
+            Console.WriteLine($"ISBN: {_isbn}");
+            Console.WriteLine($"ავტორი: {Author}");
+            Console.WriteLine($"მარაგში: {CopiesAvailable}");
         }
+
         public void BorrowBook()
         {
 
-        }
-        public void ReturnBook()
-        {
+            if (_copiesAvailable > 0)
+            {
+                _copiesAvailable--;
+                Console.WriteLine($"წარმატებით გაიტანეთ წიგნი: {Title}. დარჩა {_copiesAvailable} მარაგში.");
+            }
+            else
+            {
+                Console.WriteLine($" {Title} არ არის მარაგში");
+            }
 
         }
+
+        public void ReturnBook()
+        {
+            if (true)
+            {
+                _copiesAvailable++;
+                Console.WriteLine($"{Title} წარმატებით დაბრუნდა");
+            }
+            
+        }
     }
+
 }
 
 

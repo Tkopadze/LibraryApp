@@ -19,8 +19,10 @@ while (isTrue)
     switch (option)
     {
         case "1":
+            book.BorrowBook();
             break;
         case "2":
+            book.ReturnBook();
             break;
         case "3":
             Console.WriteLine("შეიყვანეთ მოსაძებნი წიგნის სახელი");
@@ -57,7 +59,7 @@ Book AddBook()
     System.Console.WriteLine("შეიყვანეთ სახელი"); var title = Console.ReadLine();
     System.Console.WriteLine("შეიყვანეთ ავტორი"); var author = Console.ReadLine();
     System.Console.WriteLine("შეიყვანეთ ისბნ"); var isbn = Console.ReadLine();
-    System.Console.WriteLine("შეიყვანეთ რამე"); var sth = int.Parse(Console.ReadLine());
-    Book book = new Book(title, author, isbn, sth); 
+    System.Console.WriteLine("შეიყვანეთ ეგზემპლარების რაოდენობა"); var copies = int.Parse(Console.ReadLine());
+    Book book = new Book(title, author, isbn, copies); 
     return book;
 }

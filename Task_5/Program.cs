@@ -12,7 +12,9 @@ while (isTrue)
     Console.WriteLine("4. წიგნების წაშლა");
     Console.WriteLine("5.  წიგნების დამატება ");
     Console.WriteLine("6. წიგნების სიის ნახვა ");
-    Console.WriteLine("7. გამოსვლა");
+    Console.WriteLine("7. ინფორმაციის ჩვენება");
+    Console.WriteLine("8. გამოსვლა");
+
 
 
     string option = Console.ReadLine();
@@ -42,7 +44,11 @@ while (isTrue)
         case "6":
             library.DisplayAllBooks();
             break;
+
         case "7":
+            book.DisplayInfo();
+            break;
+        case "8":
             isTrue = false;
             break;
 
@@ -58,8 +64,8 @@ Book AddBook()
 {
     System.Console.WriteLine("შეიყვანეთ სახელი"); var title = Console.ReadLine();
     System.Console.WriteLine("შეიყვანეთ ავტორი"); var author = Console.ReadLine();
-    System.Console.WriteLine("შეიყვანეთ ისბნ"); var isbn = Console.ReadLine();
+    System.Console.WriteLine("შეიყვანეთ isbn"); var isbn = Console.ReadLine();
     System.Console.WriteLine("შეიყვანეთ ეგზემპლარების რაოდენობა"); var copies = int.Parse(Console.ReadLine());
-    Book book = new Book(title, author, isbn, copies); 
+    Book book = new Book(title, author, isbn, copies);
     return book;
 }
